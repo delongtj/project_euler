@@ -1,6 +1,6 @@
 class FibonacciSequence
 
-  # Note: Performance of recursion breaks down quickly, so storing the sequence as an Array is more efficient at scale
+  # Note: Performance of recursion breaks down quickly, so storing the sequence as a read-only Array is more efficient at scale
   attr_reader :numbers
 
   def initialize(opts = { maximum: 4_000_000 })
@@ -8,7 +8,7 @@ class FibonacciSequence
 
     raise "Invalid maximum" if maximum <= 0
 
-    # Sequence required to start at 1
+    # Sequence required to start at 1 per specifications - https://projecteuler.net/problem=2
     @numbers = [ 1 ]
 
     i = 2
@@ -29,4 +29,6 @@ class FibonacciSequence
       @numbers.sum
     end
   end
+
+  # Other methods to perform on the sequence could be added here
 end
